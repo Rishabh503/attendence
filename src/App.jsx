@@ -8,8 +8,8 @@ import Subjects from './comoponents/Subjects'
 function App() {
  return (
   <div className='bg-gray-800 h-full w-full'>
-    <Attendence/>
-   
+    {/* <Attendence/> */}
+    <Subjects/>
   </div>
  )
 }

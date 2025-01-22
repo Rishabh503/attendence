@@ -2,13 +2,8 @@ import React, { useState } from 'react'
 import Form from './Form'
 import Subjects from './Subjects'
 
-const Attendence = () => {
-    const [marker,setMarker]=useState(false)
-    const handleOpenForm=()=>{
-        setMarker(!marker)
-    }
-
-    if (marker) return <Form/>;
+const Attendence = ({subjects}) => {
+    console.log(subjects)
   return (
     <>
   <div className=' flex flex-col p-4 gap-5'>
@@ -20,7 +15,7 @@ const Attendence = () => {
         </h1>
         <div className='flex gap-8 p-4 items-center justify-center'>
             <div>
-                <h1 className='font-bold text-3xl text-black border-2 border-black '>100%</h1>
+                <h1 className='font-bold text-3xl text-black border-2 border-black '>{subjects.reduce((sum, subject) => sum + subject.marks, 0)}%</h1>
             </div>
             <div>
                 <h1> 100/100</h1>
@@ -30,14 +25,11 @@ const Attendence = () => {
     {/* right side ka kam  */}
     <div className='bg-yellow-200 h-full w-1/2 '>right side</div>
     </div>
-    <button className='bg-red-500 items-center  rounded-xl p-2'
-     onClick={handleOpenForm} >
-        Add attendence 
-    </button>
+    
    
 
   </div>
-  <Subjects/>
+  
   </>
   )
 }

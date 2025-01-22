@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Form from './Form'
+import { Attendence } from './Attendence'
 
 const Subjects = () => {
-    const subjs=[
+    const [subjs,setSubjs]=useState([
         {name:"subject 1",
             marks:10
         },
@@ -23,9 +25,22 @@ const Subjects = () => {
         {name:"subject 7",
             marks:10
         },
-    ]
+    ])
+    // setSubjs(localStorage.getItem('subjects')
+    const [marker,setMarker]=useState(false)
+    const handleOpenForm=()=>{
+        setMarker(!marker)
+    }
+    
+    if (marker) return <Form value={marker} subjects={subjs}  func2={setSubjs} func1={setMarker} />;
   return (
-    <div className='p-1'>
+    <>
+    <Attendence subjects={subjs}/>
+    <div className='flex flex-col p-1 '>
+        <button className='bg-red-500 w-[80vw]  mx-auto rounded-xl p-2'
+             onClick={handleOpenForm} >
+                Add attendence 
+        </button>
         {subjs.map((subject,index)=>(
             <div key={index} className='bg-blue-200 h-[20vw] p-4  rounded-md m-3 flex justify-between items-center'>
               <p className='text-violet-400 font-semibold text-2xl'>{subject.name}</p>
@@ -34,6 +49,7 @@ const Subjects = () => {
             </div>
         ))}
     </div>
+    </>
   )
 }
 
