@@ -6,30 +6,50 @@ const Subjects = () => {
     const [subjs,setSubjs]=useState(()=>{
         const savedSubjs=localStorage.getItem('subjects');
         return savedSubjs? JSON.parse(savedSubjs):[
-            {name:"subject 1",
-                marks:0
+            {name:"PSLP",
+                marks:0,
+                total:0
             },
-            {name:"subject 2",
-                marks:0
+            {name:"TOC ",
+                marks:0,
+                total:0,
+            
             },
-            {name:"subject 3",
-                marks:0
+            {name:"CNS ",
+                marks:0,
+                total:0
             },
-            {name:"subject 4",
-                marks:0
+            {name:"JAVA ",
+                marks:0,
+                total:0
             },
-            {name:"subject 5",
-                marks:0
+            {name:"TECH WRIITNG ",
+                marks:0,
+                total:0
             },
-            {name:"subject 6",
-                marks:0
+            {name:"DBMS ",
+                marks:0,
+                total:0
             },
-            {name:"subject 7",
-                marks:0
+            {name:"DBMS LAB",
+                marks:0,
+                total:0
+            },
+            {name:"PSLP LAB",
+                marks:0,
+                total:0
+            },
+            {name:"JAVA LAB",
+                marks:0,
+                total:0
+            },
+            {name:"CNS LAB",
+                marks:0,
+                total:0
             },
         ];
     })
-    
+    console.log(subjs[1])
     const [marker,setMarker]=useState(false)
     const handleOpenForm=()=>{
         setMarker(!marker)
@@ -47,7 +67,7 @@ const Subjects = () => {
         {subjs.map((subject,index)=>(
             <div key={index} className='bg-blue-200 h-[20vw] p-4  rounded-md m-3 flex justify-between items-center'>
               <p className='text-violet-400 font-semibold text-2xl'>{subject.name}</p>
-              <p className='font-bold text-3xl'>{subject.marks} %</p>
+              <p className='font-bold text-3xl'>{Math.round((subject.marks)/subject.total)*100} %</p>
                 
             </div>
         ))}

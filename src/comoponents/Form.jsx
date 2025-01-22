@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Form = ({value,func1,subjects,func2}) => {
     // console.log(subjects)
@@ -8,7 +8,7 @@ const Form = ({value,func1,subjects,func2}) => {
     }
     const updateMarks=(index,amount)=>{
         const updatedSubjs=subjects.map((subject,i)=>
-            i===index?{...subject,marks:subject.marks+amount}:subject )
+            i===index?{...subject,marks:subject.marks+amount,total:subject.total+1}:subject )
         
 
         func2(updatedSubjs);
@@ -16,27 +16,34 @@ const Form = ({value,func1,subjects,func2}) => {
        
     }
     // console.log(subjects)
+    useEffect(() => {
+      // Save to localStorage whenever the subjects state changes
+      localStorage.setItem('subjects', JSON.stringify(subjects));
+    }, [subjects]);
 
     
   return (
     
     <div className='flex flex-col h-full w-full p-10  justify-center align-middle gap-10 bg-yellow-400'>
+       <button type='submit' className='bg-slate-300 rounded-xl p-4' onClick={handleButton}>
+                Go Back
+            </button>
        {
         subjects.map((subject,index)=>(
          <div className='flex gap-2 justify-between flex-col ' key={index}>
           <p className='text-2xl '>  {subject.name}</p>
-            <button className='bg-pink-700 rounded-xl '  onClick={()=>updateMarks(index,1)}>
+            <button className='bg-pink-700  hover:bg-blue-500 rounded-xl transition-200ms '  onClick={()=>updateMarks(index,1)}>
                 <p  className='text-xl font-semibold p-2 '> CLASS TAKEN</p> 
                 </button>
                
-                <button  className='bg-red-300 rounded-xl' onClick={()=>updateMarks(index,-1)}>
+                <button  className='bg-red-300 hover:bg-blue-500 rounded-xl' onClick={()=>(updateMarks(index,0))}>
                <p className='text-xl font-semibold p-2 rounded-xl'> CLASS LEFT</p>
                 </button>
          </div>
         ))
        }
-        <button type='submit' className='bg-red-500'  onClick={handleButton}>
-                exit
+        <button type='submit' className='bg-slate-300 rounded-xl p-4' onClick={handleButton}>
+                Exit 
             </button>
     </div>
   )

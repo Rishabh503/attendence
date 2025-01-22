@@ -3,7 +3,12 @@ import Form from './Form'
 import Subjects from './Subjects'
 
 const Attendence = ({subjects}) => {
-    // console.log(subjects)
+    console.log(subjects)
+    const attended=subjects.reduce((suma, subject) => suma + subject.marks, 0);
+    const totalClasses=subjects.reduce((sumx, subject) =>sumx+ subject.total, 0);
+    console.log(attended,totalClasses)
+    const display=Math.round((attended/(totalClasses))*100)
+    console.log(display)
   return (
     <>
   <div className=' flex flex-col p-4 gap-5'>
@@ -15,15 +20,17 @@ const Attendence = ({subjects}) => {
         </h1>
         <div className='flex gap-8 p-4 items-center justify-center'>
             <div>
-                <h1 className='font-bold text-3xl text-black border-2 border-black '>{subjects.reduce((sum, subject) => sum + subject.marks, 0)}%</h1>
+                <h1 className='font-bold text-3xl text-black border-2 border-black '>
+                    {display}%
+                    </h1>
             </div>
             <div>
-                <h1> 100/100</h1>
+                <h1> {attended}/{totalClasses}</h1>
             </div>
         </div>
     </div>
     {/* right side ka kam  */}
-    <div className='bg-yellow-200 h-full w-1/2 '>right side</div>
+    <div className='bg-yellow-200 h-full w-1/2 flex justify-center align-middle content-center  '> <p>UNDER DEVLOPMENT</p></div>
     </div>
     
    
