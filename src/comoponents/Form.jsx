@@ -7,14 +7,16 @@ const Form = ({value,func1,subjects,func2}) => {
         func1(!value);
     }
     const updateMarks=(index,amount)=>{
-        func2((prev)=>
-                    prev.map((subject,i)=>
-                    i===index?
-    {...subject,marks:subject.marks+amount}
-:subject)
-        )
+        const updatedSubjs=subjects.map((subject,i)=>
+            i===index?{...subject,marks:subject.marks+amount}:subject )
+        
+
+        func2(updatedSubjs);
+        localStorage.setItem('subjects',JSON.stringify(updatedSubjs));
     }
     console.log(subjects)
+
+    
   return (
     
     <div className='flex flex-col justify-center align-middle gap-10 bg-yellow-400'>

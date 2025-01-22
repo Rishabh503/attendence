@@ -3,30 +3,33 @@ import Form from './Form'
 import { Attendence } from './Attendence'
 
 const Subjects = () => {
-    const [subjs,setSubjs]=useState([
-        {name:"subject 1",
-            marks:10
-        },
-        {name:"subject 2",
-            marks:10
-        },
-        {name:"subject 3",
-            marks:10
-        },
-        {name:"subject 4",
-            marks:10
-        },
-        {name:"subject 5",
-            marks:10
-        },
-        {name:"subject 6",
-            marks:10
-        },
-        {name:"subject 7",
-            marks:10
-        },
-    ])
-    // setSubjs(localStorage.getItem('subjects')
+    const [subjs,setSubjs]=useState(()=>{
+        const savedSubjs=localStorage.getItem('subjects');
+        return savedSubjs? JSON.parse(savedSubjs):[
+            {name:"subject 1",
+                marks:10
+            },
+            {name:"subject 2",
+                marks:10
+            },
+            {name:"subject 3",
+                marks:10
+            },
+            {name:"subject 4",
+                marks:10
+            },
+            {name:"subject 5",
+                marks:10
+            },
+            {name:"subject 6",
+                marks:10
+            },
+            {name:"subject 7",
+                marks:10
+            },
+        ];
+    })
+    
     const [marker,setMarker]=useState(false)
     const handleOpenForm=()=>{
         setMarker(!marker)
