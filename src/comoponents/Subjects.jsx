@@ -7,25 +7,25 @@ const Subjects = () => {
         const savedSubjs=localStorage.getItem('subjects');
         return savedSubjs? JSON.parse(savedSubjs):[
             {name:"subject 1",
-                marks:10
+                marks:0
             },
             {name:"subject 2",
-                marks:10
+                marks:0
             },
             {name:"subject 3",
-                marks:10
+                marks:0
             },
             {name:"subject 4",
-                marks:10
+                marks:0
             },
             {name:"subject 5",
-                marks:10
+                marks:0
             },
             {name:"subject 6",
-                marks:10
+                marks:0
             },
             {name:"subject 7",
-                marks:10
+                marks:0
             },
         ];
     })

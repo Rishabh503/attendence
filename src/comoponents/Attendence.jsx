@@ -3,7 +3,7 @@ import Form from './Form'
 import Subjects from './Subjects'
 
 const Attendence = ({subjects}) => {
-    console.log(subjects)
+    // console.log(subjects)
   return (
     <>
   <div className=' flex flex-col p-4 gap-5'>
