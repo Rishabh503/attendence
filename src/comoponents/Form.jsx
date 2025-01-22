@@ -21,6 +21,49 @@ const Form = ({value,func1,subjects,func2}) => {
       localStorage.setItem('subjects', JSON.stringify(subjects));
     }, [subjects]);
 
+    const deleteALL=()=>{
+      func2([ {name:"PSLP",
+        marks:0,
+        total:0
+    },
+    {name:"TOC ",
+        marks:0,
+        total:0,
+    
+    },
+    {name:"CNS ",
+        marks:0,
+        total:0
+    },
+    {name:"JAVA ",
+        marks:0,
+        total:0
+    },
+    {name:"TECH WRIITNG ",
+        marks:0,
+        total:0
+    },
+    {name:"DBMS ",
+        marks:0,
+        total:0
+    },
+    {name:"DBMS LAB",
+        marks:0,
+        total:0
+    },
+    {name:"PSLP LAB",
+        marks:0,
+        total:0
+    },
+    {name:"JAVA LAB",
+        marks:0,
+        total:0
+    },
+    {name:"CNS LAB",
+        marks:0,
+        total:0
+    },]);
+    }
     
   return (
     
@@ -44,6 +87,10 @@ const Form = ({value,func1,subjects,func2}) => {
        }
         <button type='submit' className='bg-slate-300 rounded-xl p-4' onClick={handleButton}>
                 Exit 
+            </button>
+
+            <button type='submit' className='bg-slate-300 rounded-xl p-4' onClick={deleteALL}>
+                Danger 
             </button>
     </div>
   )
