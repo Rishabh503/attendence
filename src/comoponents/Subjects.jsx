@@ -74,7 +74,7 @@ const Subjects = () => {
               <p className='font-semibold text-xl pl-1'>
                 {subject.marks}/{subject.total}
               </p>
-              <p className='font-bold text-3xl'>{((subject.marks)/subject.total)*100} %</p>
+              <p className='font-bold text-3xl'>{100*((subject.marks)/subject.total).toExponential(3)} %</p>
               </div>
 
             </div>
