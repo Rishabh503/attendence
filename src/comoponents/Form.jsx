@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Confirmation from './Confirmation';
+// import Confirmation from './Confirmation'; 
 
 const Form = ({value,func1,subjects,func2}) => {
     // console.log(subjects)
@@ -23,6 +23,15 @@ const Form = ({value,func1,subjects,func2}) => {
         alert("left attendence added succesfully")
         func2(updatedAfterLeft);
         localStorage.setItem('subjects',JSON.stringify(updatedAfterLeft));
+    }
+
+    const buttonUndo=(index)=>{
+        // const updatedAfterUndo=subjects.map((subject,i)=> i===index?{...subject,
+        //     total:subject.total-1,
+        //     marks:subject.marks-1}:subject)
+        // alert("You made an undo ")
+        // func2(updatedAfterUndo);
+        // localStorage.setItem('subjects',JSON.stringify(updatedAfterUndo));
     }
     // console.log(subjects)
     useEffect(() => {
@@ -76,7 +85,9 @@ const Form = ({value,func1,subjects,func2}) => {
     
     const handleCheck=()=>{
         // setDanger(!danger)
+        alert("all data will be reset")
         deleteALL()
+       
     }
     
     // if(!danger) return (
@@ -92,7 +103,11 @@ const Form = ({value,func1,subjects,func2}) => {
        {
         subjects.map((subject,index)=>(
          <div className='flex gap-2 justify-between flex-col ' key={index}>
-          <p className='text-2xl '>  {subject.name}</p>
+             <div className='flex items-center justify-between '>
+                <p className='text-2xl '>  {subject.name}</p>
+                {/* <button onClick={()=>buttonUndo(index)}
+                 className='mr-3 bg-green-500 px-2 rounded-md   oontent-center items-center'>undo</button> */}
+            </div>
             <button className='bg-pink-700  hover:bg-blue-500 rounded-xl transition-200ms '   onClick={()=>addAttendence(index)}>
                 <p  className='text-xl font-semibold p-2  cursor-pointer '> CLASS TAKEN</p> 
                 </button>
@@ -107,8 +122,17 @@ const Form = ({value,func1,subjects,func2}) => {
                 Exit 
             </button>
 
-            <button  className='bg-slate-300 rounded-xl p-4' onClick={handleCheck}>
+            <button  className='bg-slate-300 rounded-xl p-4' onClick={()=>{setDanger(!danger)}}>
                 Danger 💀
+               {danger? <div className=' w-full flex mx-24 mt-4 justify-betweeen gap-4  '>
+                <button className='bg-red-500 p-2 rounded-md ' onClick={handleCheck} >
+                    YES
+                </button>
+                    <button className='bg-green-500 p-2 rounded-md '  >
+                        NO
+                    </button>
+               </div>
+               :""}
             </button>
     </div>
   )

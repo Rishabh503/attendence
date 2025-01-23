@@ -3,12 +3,12 @@ import Form from './Form'
 import Subjects from './Subjects'
 
 const Attendence = ({subjects}) => {
-    console.log(subjects)
+    // console.log(subjects)
     const attended=subjects.reduce((suma, subject) => suma + subject.marks, 0);
     const totalClasses=subjects.reduce((sumx, subject) =>sumx+ subject.total, 0);
-    console.log(attended,totalClasses)
+    // console.log(attended,totalClasses)
     const display=Math.round((attended/(totalClasses))*100)
-    console.log(display)
+    // console.log(display)
   return (
     <>
   <div className=' flex flex-col p-4 gap-5'>
