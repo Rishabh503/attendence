@@ -65,10 +65,16 @@ const Subjects = () => {
                 Add attendence 
         </button>
         {subjs.map((subject,index)=>(
-            <div key={index} className='bg-blue-200 h-[20vw] p-4  rounded-md m-3 flex justify-between items-center'>
-              <p className='text-violet-400 font-semibold text-2xl'>{subject.name}</p>
+            <div key={index} className='bg-blue-200 h-[25vw] p-4  rounded-md m-3 flex flex-col items-start'>
+              <p className='text-violet-400 font-bold text-3xl'>{subject.name}</p>
+             
+              <div className='flex gap-10 w-full items-center align-baseline justify-between'>
+              <p className='font-semibold text-xl pl-1'>
+                {subject.marks}/{subject.total}
+              </p>
               <p className='font-bold text-3xl'>{Math.round((subject.marks)/subject.total)*100} %</p>
-                
+              </div>
+
             </div>
         ))}
     </div>

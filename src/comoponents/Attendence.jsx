@@ -14,7 +14,7 @@ const Attendence = ({subjects}) => {
   <div className=' flex flex-col p-4 gap-5'>
       <div className='h-[50vw] w-full flex    gap-4 items-center justify-between '>
     {/* left side ka kam  */}
-    <div className='bg-green-300 h-full w-1/2 text-white flex flex-col gap-4 '>
+    <div className='bg-green-300 h-full w-1/2 text-white flex flex-col gap-4 rounded-xl '>
         <h1 className='font-extrabold overflow-auto text-2xl al p-2' >
             TOTAL ATTENDENCE
         </h1>
