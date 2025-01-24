@@ -31,21 +31,12 @@ const Form = ({value,func1,subjects,func2}) => {
             total: subject.total && subject.marks>0?subject.total-1:subject.total,
             marks:subject.total && subject.marks>0?subject.marks-1:subject.marks}:subject)
         
-        alert("left attendence added succesfully")
+        alert("class removal done")
         func2(updatedAfterUndo);
         localStorage.setItem('subjects',JSON.stringify(updatedAfterUndo));
     }
     
-
-    const buttonUndo=(index)=>{
-        // const updatedAfterUndo=subjects.map((subject,i)=> i===index?{...subject,
-        //     total:subject.total-1,
-        //     marks:subject.marks-1}:subject)
-        // alert("You made an undo ")
-        // func2(updatedAfterUndo);
-        // localStorage.setItem('subjects',JSON.stringify(updatedAfterUndo));
-    }
-    // console.log(subjects)
+// ole.log(subjects)
     useEffect(() => {
       // Save to localStorage whenever the subjects state changes
       localStorage.setItem('subjects', JSON.stringify(subjects));
@@ -114,24 +105,21 @@ const Form = ({value,func1,subjects,func2}) => {
             </button>
        {
         subjects.map((subject,index)=>(
-         <div className='flex gap-2 justify-between flex-col ' key={index}>
+         <div className='flex gap-2 justify-between flex-col ' key={index} id={index}>
              <div className='flex items-center justify-between '>
                 <p className='text-2xl '>  {subject.name}</p>
-                <button onClick={()=>buttonUndo(index)}
-                 className='mr-3 bg-green-500 px-2 rounded-md   oontent-center items-center'>
-                
-                 </button>
             </div>
-            <button className='bg-pink-700  hover:bg-blue-500 rounded-xl transition-200ms '   onClick={()=>addAttendence(index)}>
-                <p  className='text-xl font-semibold p-2  cursor-pointer '> CLASS TAKEN</p> 
+            <div className='flex  grid-cols-3 gap-5'>
+                <button className='bg-blue-700  hover:bg-green-500 rounded-xl transition-200ms '   onClick={()=>addAttendence(index)}>
+                    <p  className='text-md font-bold p-2  cursor-pointer '> CLASS TAKEN</p> 
                 </button>
-               
-                <button  className='bg-red-500 hover:bg-blue-500 rounded-xl cursor-pointer' onClick={()=>(classLeft(index))}>
-               <p className='text-xl font-semibold p-2 rounded-xl'> CLASS LEFT</p>
+                <button  className='bg-pink-500 hover:bg-blue-500 rounded-xl cursor-pointer' onClick={()=>(classLeft(index))}>
+                <p className='text-md font-bold p-2  cursor-pointer '> CLASS LEFT</p>
                 </button>
-                <button  className='bg-red-300 hover:bg-blue-500 rounded-xl cursor-pointer' onClick={()=>(deleteOne(index))}>
-               <p className='text-xl font-semibold p-2 rounded-xl'>Delete One</p>
+                <button  className='bg-blue-300 hover:bg-red-500 rounded-xl cursor-pointer' onClick={()=>(deleteOne(index))}>
+                <p className='text-md font-bold p-2  cursor-pointer '>Delete One</p>
                 </button>
+            </div>
          </div>
         ))
        }

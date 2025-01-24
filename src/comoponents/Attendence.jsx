@@ -30,7 +30,11 @@ const Attendence = ({subjects}) => {
         </div>
     </div>
     {/* right side ka kam  */}
-    <div className='bg-yellow-200 h-full w-1/2 flex justify-center align-middle content-center  '> <p>UNDER DEVLOPMENT</p></div>
+    <div className=' h-full w-1/2 flex justify-center  items-center bg-blend-overlay  '> <p>
+      <img className="bg-blend-color-dodge rounded-xl" src="photo1.jpg" alt="" />
+      </p>
+      
+      </div>
     </div>
     
    
