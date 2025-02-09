@@ -66,7 +66,7 @@ const Subjects = () => {
         </button>
         {subjs.map((subject,index)=>(
             <div key={index}  onDoubleClick={handleOpenForm}
-             className='bg-blue-200 h-[25vw] p-4  rounded-md m-3 flex flex-col items-start'>
+             className='bg-blue-200 h-[25vw] sm:h-auto  p-4  rounded-md m-3 flex sm:flex-row sm:flex-wrap flex-col items-start'>
                <div onClick={handleOpenForm}>
                 <p className='text-violet-400 font-bold text-3xl'>{subject.name}</p>
               </div>

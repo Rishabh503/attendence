@@ -109,14 +109,14 @@ const Form = ({value,func1,subjects,func2}) => {
              <div className='flex items-center justify-between '>
                 <p className='text-2xl '>  {subject.name}</p>
             </div>
-            <div className='flex  grid-cols-3 gap-5'>
-                <button className='bg-blue-700  hover:bg-green-500 rounded-xl transition-200ms '   onClick={()=>addAttendence(index)}>
+            <div className='flex items-center justify-between grid-cols-3 gap-5'>
+                <button className='bg-blue-700 sm:px-12 hover:bg-green-500 rounded-xl transition-200ms '   onClick={()=>addAttendence(index)}>
                     <p  className='text-md font-bold p-2  cursor-pointer '> CLASS TAKEN</p> 
                 </button>
-                <button  className='bg-pink-500 hover:bg-blue-500 rounded-xl cursor-pointer' onClick={()=>(classLeft(index))}>
+                <button  className='bg-pink-500 sm:px-12 hover:bg-blue-500 rounded-xl cursor-pointer' onClick={()=>(classLeft(index))}>
                 <p className='text-md font-bold p-2  cursor-pointer '> CLASS LEFT</p>
                 </button>
-                <button  className='bg-blue-300 hover:bg-red-500 rounded-xl cursor-pointer' onClick={()=>(deleteOne(index))}>
+                <button  className='bg-blue-300 sm:px-12 hover:bg-red-500 rounded-xl cursor-pointer' onClick={()=>(deleteOne(index))}>
                 <p className='text-md font-bold p-2  cursor-pointer '>Delete One</p>
                 </button>
             </div>

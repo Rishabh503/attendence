@@ -12,9 +12,9 @@ const Attendence = ({subjects}) => {
   return (
     <>
   <div className=' flex flex-col p-4 gap-5'>
-      <div className='h-[50vw] w-full flex    gap-4 items-center justify-between '>
+      <div className='h-[50vw] sm:h-[25vw] w-full flex    gap-4 items-center justify-between '>
     {/* left side ka kam  */}
-    <div className='bg-green-300 h-full w-1/2 text-white flex flex-col gap-4 rounded-xl '>
+    <div className='bg-green-300 h-full w-1/2 items-center text-white flex flex-col gap-4 rounded-xl '>
         <h1 className='font-extrabold overflow-auto text-2xl al p-2' >
             TOTAL ATTENDENCE
         </h1>
@@ -30,7 +30,7 @@ const Attendence = ({subjects}) => {
         </div>
     </div>
     {/* right side ka kam  */}
-    <div className=' h-full w-1/2 flex justify-center  items-center bg-blend-overlay  '> <p>
+    <div className=' h-full sm:h-[1vw] w-1/2 sm:w-[35vw] flex justify-center  items-center bg-blend-overlay  '> <p>
       <img className="bg-blend-color-dodge rounded-xl" src="photo1.jpg" alt="" />
       </p>
       
